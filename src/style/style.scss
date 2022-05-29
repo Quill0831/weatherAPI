@@ -1,0 +1,84 @@
+*{
+    margin:0%;
+    padding: 0%;
+    box-sizing: border-box;
+   
+}
+
+
+.page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.weatherCard{
+
+    width: 290px;
+    height: 320px;
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+}
+.locationName{
+    font-size: 30px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 20px 0 10px;
+}
+
+
+.description{
+    font-size: 15px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 20px 0 10px;
+}
+.temperature{
+    font-size: 50px;
+    background-color: rgb(255, 255, 255);
+    margin: 0 20px 0 10px;
+    
+}
+
+.temperPort{
+    display: flex;
+    justify-content:flex-start;
+    
+}
+
+
+.icon{
+    width: 20px;
+    height: 20px;
+    margin: 0 20px 0 10px;
+
+}
+
+
+.weatherDescription{
+    width: 55px;
+    height: 55px;
+    margin-left: 50px;
+    
+}
+
+.button{
+    margin-left: 150px;
+    width: 20px;
+    height: 20px;
+    cursor:pointer;
+    
+}
+
+
+.cogicon{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: 260px;
+    top: -35px;
+  cursor: pointer;
+  }
+
+  .weatherIcon{
+    margin-left: 50px;
+  }
