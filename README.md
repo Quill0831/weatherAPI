@@ -1,4 +1,4 @@
-# memorygame
+# WeatherApi
 ![image](https://github.com/Quill0831/weatherAPI/blob/master/weatherapi_.gif)
 用 react 框架串聯天氣狀態API實作練習
 [DEMO](https://quill0831.github.io/weatherAPI/)  
