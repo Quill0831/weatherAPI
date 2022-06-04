@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { availableLocations } from './utils.js';
+import { availableLocations } from './utils';
 
 const WeatherSettingWrapper = styled.div`
   position: relative;
@@ -89,59 +88,49 @@ const Save = styled.button`
   }
 `;
 
+const locations = availableLocations.map((location) => location.cityName);
 
+function WeatherSetting({ setCurrentPage, cityName, setCurrentCity }) {
+  const [locationName, setLocationName] = useState(cityName);
 
- const locations = availableLocations.map((location) => location.cityName);
-
-const WeatherSetting = ({setCurrentPage , cityName, setCurrentCity}) => {
-
-  const [locationName ,setLocationName] = useState(cityName);
- 
-
-  const handleChange = (e) =>{
-   
+  const handleChange = (e) => {
     console.log(e.target.value);
 
     setLocationName(e.target.value);
-  }
-
+  };
 
   const handleSave = () => {
-    // STEP 2：判斷使用者填寫的地區是否包含在 locations 陣列內
     if (locations.includes(locationName)) {
-      // TODO: 儲存地區資訊...
       console.log(`儲存的地區資訊為：${locationName}`);
       setCurrentCity(locationName);
       setCurrentPage('WeatherCard');
     } else {
-      // STEP 4：若不包含在 locations 內，則顯示錯誤提示
       alert(`儲存失敗：您輸入的 ${locationName} 並非有效的地區`);
-      return;
     }
   };
 
+  return (
+    <WeatherSettingWrapper>
+      <Title>設定</Title>
+      <StyledLabel htmlFor="location">地區</StyledLabel>
+      <StyledInputList
+        list="location-list"
+        id="location"
+        name="location"
+        value={locationName}
+        onChange={handleChange}
+      />
 
-    return (
-        <WeatherSettingWrapper>
-          <Title>設定</Title>
-          <StyledLabel htmlFor="location">地區</StyledLabel>
-          <StyledInputList 
-          list="location-list" 
-          id="location" 
-          name="location"
-          value={locationName}
-          onChange={handleChange} />
-          
-          <datalist id="location-list">
-            {/* 定義 datalist 中的 options*/}
-          </datalist>
-    
-          <ButtonGroup>
-            <Back onClick={()=> setCurrentPage('WeatherCard')}>返回</Back>
-            <Save onClick={handleSave}>儲存</Save>
-          </ButtonGroup>
-        </WeatherSettingWrapper>
-      );
-};
+      <datalist id="location-list">
+        {/* 定義 datalist 中的 options */}
+      </datalist>
+
+      <ButtonGroup>
+        <Back onClick={() => setCurrentPage('WeatherCard')}>返回</Back>
+        <Save onClick={handleSave}>儲存</Save>
+      </ButtonGroup>
+    </WeatherSettingWrapper>
+  );
+}
 
 export default WeatherSetting;
